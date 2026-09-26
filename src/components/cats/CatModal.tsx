@@ -107,7 +107,7 @@ export function CatModal({ cat, isOpen, onClose, onConfirm }: CatModalProps) {
         <button type="button" onClick={onClose}>
           Отмена
         </button>
-        <button type="button" onClick={handleConfirm}>
+        <button type="button" data-testId="catModalAddButton" onClick={handleConfirm}>
           Добавить в корзину
         </button>
       </div>

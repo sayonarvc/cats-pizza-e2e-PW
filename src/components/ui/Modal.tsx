@@ -30,7 +30,7 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         onClick={(event) => {
           event.stopPropagation();
         }}>
-        {title ? <h2 className="modal__title">{title}</h2> : null}
+        {title ? <h2 className="modal__title" data-testId="modalTitle">{title}</h2> : null}
         <div className="modal__body">{children}</div>
       </div>
     </div>

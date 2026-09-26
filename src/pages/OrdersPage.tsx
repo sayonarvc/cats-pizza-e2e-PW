@@ -52,7 +52,7 @@ export function OrdersPage() {
       {!isLoading && !error && orders.length === 0 && <p>Заказов пока нет.</p>}
 
       {!isLoading && !error && orders.length > 0 && (
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }} data-testId="ordersList">
           {orders.map((order) => (
             <li
               key={order.id}
