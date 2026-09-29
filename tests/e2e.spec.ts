@@ -75,7 +75,6 @@ test.describe('Оформление заказа авторизованным и
     await page.getByTestId('catModalAddButton').click();
 
     await page.getByTestId('openCartButton').click();
-
     await page.getByTestId('goToCartPageButton').click();
     await page.getByTestId('makeOrderButton').click();
 
