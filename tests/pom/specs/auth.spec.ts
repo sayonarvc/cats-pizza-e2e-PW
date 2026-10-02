@@ -9,7 +9,7 @@ test.describe('Авторизация и регистрация пользова
     if (!createdUserEmail) return;
 
     const cleanupApi = new CleanupApi(request);
-    cleanupApi.deleteUserByEmail(createdUserEmail);
+    await cleanupApi.deleteUserByEmail(createdUserEmail);
 
     createdUserEmail = null;
   });
