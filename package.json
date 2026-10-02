@@ -9,7 +9,9 @@
     "dev:all": "npm run dev & npm run dev:server",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "express": "^4.21.2",

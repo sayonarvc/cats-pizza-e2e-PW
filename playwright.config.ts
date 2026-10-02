@@ -61,9 +61,16 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: [
+    {
+      command: 'npm run dev:server',
+      url: 'http://127.0.0.1:3001/api/cats',
+      reuseExistingServer: !process.env.CI,
+    },
+    {
+      command: 'npm run dev -- --host 127.0.0.1 --port 5173',
+      url: 'http://127.0.0.1:5173',
+      reuseExistingServer: !process.env.CI,
+    },
+  ],
 });
