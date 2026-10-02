@@ -1,15 +1,15 @@
-import { authorizedTest as test } from '../../fixtures/app.fixture';
+import { guestTest as test } from '../../fixtures/app.fixture';
 import { testUsers, testAdress } from '../data/testData';
-import { CleanupApi } from './../api/CleanupApi';
+import { CleanupApi } from '../api/CleanupApi';
 
-test.describe('Оформление заказа авторизованным пользователем (auth.setup)', () => {
+test.describe('Оформление заказа неавторизованным пользователем', () => {
   test.describe.configure({ mode: 'serial' });
   test.afterEach(async ({ request }) => {
     const cleanupApi = new CleanupApi(request);
     await cleanupApi.deleteOrdersByEmail(testUsers.existing.email);
   });
 
-  test('Оформление заказа с помощью уже авторизованного пользователя через auth.setup', async ({
+  test('Оформление заказа неавторизованным пользователем', async ({
     homePage,
     orderPage,
     checkoutPage,
@@ -18,6 +18,8 @@ test.describe('Оформление заказа авторизованным п
 
     await homePage.addFirstCatToCart();
     await homePage.goToCheckoutFromCart();
+
+    await checkoutPage.signInInCheckout(testUsers.existing.email, testUsers.existing.password);
 
     await checkoutPage.fillAdress(testAdress);
     await checkoutPage.submit();

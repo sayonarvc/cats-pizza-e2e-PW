@@ -1,4 +1,4 @@
-import { test } from '../../fixtures/app.fixture';
+import { guestTest as test } from '../../fixtures/app.fixture';
 
 test('Проверка каталога и отображение товаров', async ({ homePage }) => {
   await homePage.openPage();
